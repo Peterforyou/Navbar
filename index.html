@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/7c9a87d0e8.js" crossorigin="anonymous"></script>
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        div {
+            background-color: #ddd;
+            padding: 2rem 0rem;
+        }
+        ul {
+            display: flex;
+            list-style: none;
+            justify-content: end;
+            padding-right: 5rem;
+            background-color: #ddd;
+            text-transform: uppercase;
+            font-weight: bolder;
+        }
+        a {
+            text-decoration: none;
+            padding: 0rem 3rem;
+            font-size: 2rem;
+            color: purple;
+        }
+        a:hover {
+            opacity: .5;
+        }
+      
+        #checkme {
+            display: none;
+        }
+        @media screen and (max-width: 700px) {
+            .harburger {
+                border: 2px solid #000;
+                display: inline-block;
+                width: 3rem;
+                height: 2rem;
+                position: fixed;
+                top: 1.1rem;
+                right: 1rem;
+                border-radius: .4rem;
+                z-index: 20;
+            }
+            .harburger span {
+                display: block;
+                position: fixed;
+                right: 1.5rem;
+                top: 2rem;
+                height: .2rem;
+                width: 2rem;
+                background-color: #999;
+                z-index: 10;
+            }
+            .harburger span::after {
+                content: "";
+                display: block;
+                position: fixed;
+                right: 1.5rem;
+                top: 1.5rem;
+                height: .2rem;
+                width: 2rem;
+                background-color: #999;
+                transition: all .5;
+            }
+            .harburger span::before {
+                content: "";
+                display: block;
+                position: fixed;
+                right: 1.5rem;
+                top: 2.5rem;
+                height: .2rem;
+                width: 2rem;
+                background-color: #999;
+                transition: all .5s;
+            }
+            ul {
+                display: block;
+                list-style: none;
+                text-align: center;
+                height: 100vh;
+                width: 50%;
+                position: absolute;
+                background-color: #ddd;
+                top: 0%;
+                right: 100%;
+                padding-right: 0rem;
+                padding-top: 5rem;
+                transition: all .4s;
+                overflow: hidden;
+            }
+            ul li {
+                line-height: 5rem;
+            }
+            #checkme:checked ~ ul {
+                transition: all .4s;
+                right: 0;
+            }
+            #checkme:checked ~ .harburger span {
+                background-color: transparent;
+            }
+            #checkme:checked ~ .harburger span::before {
+                transform: rotate(-135deg);
+                top: 2rem;
+            }
+            #checkme:checked ~ .harburger span::after {
+                transform: rotate(135deg);
+                top: 2rem;
+            }
+            a {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+
+    <div>
+        <input type="checkbox" id="checkme">
+        <label for="checkme" class="harburger">
+            <span></span>
+        </label>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">gallery</a></li>
+            <li><a href="#">contact</a></li>
+        </ul>
+ 
+    </div>
+</body>
+</html>
